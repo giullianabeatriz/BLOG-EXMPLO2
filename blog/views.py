@@ -29,16 +29,8 @@ def contato(request):
     if request.method == "POST":
         form = MensagemForm(request.POST)
         if form.is_valid():
-            mensagem = Mensagem(
-                nome = form.cleaned_data["nome"],
-                email = form.cleaned_data["email"],
-                telefone = form.cleaned_data["telefone"],
-                mensagem = form.cleaned_data["mensagem"],
-                cidade = form.cleaned_data["cidade"],
-            )
-            mensagem.Save()
+            form.save()
         return redirect('mensagem')
-    
     else:
         context["form"] = MensagemForm()
         return render(request, "contact.html", context)
@@ -59,13 +51,9 @@ def editar_mensagem(request, mensagem_id):
 
     if request.method == "POST":
         if form.is_valid():
-            mensagem.nome = form.cleaned_data["nome"],
-            mensagem.email = form.cleaned_data["email"],
-            mensagem.telefone = form.cleaned_data["telefone"],
-            mensagem.mensagem = form.cleaned_data["mensagem"],
-            mensagem.cidade = form.cleaned_data["cidade"],
-            mensagem.Save()
+            form.save()
         return redirect('mensagem')
+    
     return render(request, "contact.html", context)
 
 def deletar_mensagem(request, mensagem_id):
