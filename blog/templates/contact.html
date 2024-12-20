@@ -2,38 +2,45 @@
 {% load static crispy_forms_tags %}
 
 {% block header %}
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="page-heading">
-                            <h1>Contato</h1>
-                            <span class="subheading">Entre em contato</span>
-                        </div>
-                    </div>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Contato</h1>
+                    <span class="subheading">Dúvidas? Eu tenho respostas.</span>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block content %}
-        <!-- Main Content-->
-        <main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Quer entrar em contato? </p>
-                        <p>Envie-me uma mensagem e respoderei assim que possível!</p>
-                        <div class="my-5">
-                            <form id="contactForm" method="POST">
-                                {% csrf_token %}
-                                {{ form | crispy }}
-                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Enviar</button>
-                            </form>
-                        </div>
-                    </div>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Quer entar em contato? Envie-me uma mensagem e responderei assim que possível!</p>
+                <div class="my-5">
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Enviar</button>
+                    </form>
                 </div>
             </div>
-        </main>
+        </div>
+    </div>
+</main>
 {% endblock content %}
